@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NotePad</string>
+    <string name="headline_main">NotePad</string>
+    <string name="et_title_instruction">Write your title here</string>
+    <string name="et_content_instruction">Write your content here</string>
+    <string name="add_button_text">Add note</string>
+    <string name="check_button_text">Check notes</string>
+    <string name="listview_notes">Notes</string>
+</resources>
