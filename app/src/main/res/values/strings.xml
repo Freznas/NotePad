@@ -6,4 +6,8 @@
     <string name="add_button_text">Add note</string>
     <string name="check_button_text">Check notes</string>
     <string name="listview_notes">Notes</string>
+    <string name="btn_saveNote">Save note</string>
+    <string name="btn_deleteText">Delete</string>
+    <string name="btn_returnText">Return</string>
+    <string name="ET_title_instruction">Title</string>
 </resources>

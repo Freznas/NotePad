@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
+    android:padding="10dp"
     tools:context=".NotesActivity">
     <!--här skapar vi en "ram" för vår listview-->
 
@@ -12,62 +13,95 @@
         android:id="@+id/tv_notes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/listview_notes"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="@dimen/fontsize_large"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_height="@dimen/titleinput_height"
+        android:autofillHints="title"
+        android:layout_margin="@dimen/layout_margin_input"
         android:gravity="center|bottom"
-        android:hint="Title"
+        android:hint="@string/ET_title_instruction"
+        android:inputType="text"
+        android:textSize="@dimen/fontsize_small"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/et_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_notes">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.794">
 
     </EditText>
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/et_content"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/intentcontent_height"
+        android:autofillHints="content"
+        android:layout_margin="@dimen/layout_margin_input"
         android:gravity="center|bottom"
         android:hint="@string/et_content_instruction"
+        android:inputType="textMultiLine"
+        android:minLines="5"
+        android:textSize="@dimen/fontsize_small"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="136dp">
+        app:layout_constraintBottom_toTopOf="@+id/btn_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.803">
 
     </EditText>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="120dp"
+        android:id="@+id/btn_save"
+        android:layout_width="@dimen/btn_saveWidth"
         android:layout_height="wrap_content"
-        android:text="Save note"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="248dp" />
+        android:layout_marginTop="@dimen/savebtn_MarginToTop"
+        android:layout_marginEnd="@dimen/savebtn_marginToRight"
+        android:backgroundTint="@color/black"
+        android:text="@string/btn_saveNote"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="120dp"
+        android:id="@+id/btn_return"
+        android:layout_width="@dimen/btn_returnWidth"
         android:layout_height="wrap_content"
-        android:text="Main Page"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="248dp" />
+        android:layout_marginStart="@dimen/returnbtn_marginToLeft"
+        android:layout_marginTop="@dimen/returnbtn_marginToTop"
+        android:backgroundTint="@color/black"
+        android:text="@string/btn_returnText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="248dp" />
+        android:layout_marginStart="@dimen/deletebtn_marginToStart"
+        android:layout_marginTop="@dimen/deletebtn_marginToTop"
+        android:layout_marginEnd="@dimen/deletebtn_marginToRight"
+        android:backgroundTint="@color/black"
+        android:text="@string/btn_deleteText"
+        app:layout_constraintEnd_toStartOf="@+id/btn_return"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toEndOf="@+id/btn_save"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

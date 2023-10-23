@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="layout_margin_small">10dp</dimen>
-    <dimen name="fontsize_large">30sp</dimen>
+    <dimen name="fontsize_large">40sp</dimen>
     <dimen name="fontsize_medium">20sp</dimen>
     <dimen name="fontsize_small">15sp</dimen>
     <dimen name="et_title_height">50dp</dimen>
     <dimen name="et_content_height">100dp</dimen>
     <dimen name="button_margin_top">16dp</dimen>
     <dimen name="listview_height">375dp</dimen>
+    <dimen name="btn_marginToBottom">4dp</dimen>
+    <dimen name="titleinput_height">75dp</dimen>
+    <dimen name="intentcontent_height">100dp</dimen>
+    <dimen name="savebtn_MarginToTop">324dp</dimen>
+    <dimen name="savebtn_marginToRight">10dp</dimen>
+    <dimen name="btn_returnWidth">120dp</dimen>
+    <dimen name="btn_saveWidth">120dp</dimen>
+    <dimen name="returnbtn_marginToLeft">10dp</dimen>
+    <dimen name="returnbtn_marginToTop">324dp</dimen>
+    <dimen name="deletebtn_marginToStart">28dp</dimen>
+    <dimen name="deletebtn_marginToLeft">10dp</dimen>
+    <dimen name="deletebtn_marginToTop">324dp</dimen>
+    <dimen name="deletebtn_marginToRight">10dp</dimen>
+    <dimen name="lv_Padding">5dp</dimen>
+    <dimen name="lv_contentHeight">100dp</dimen>
+    <dimen name="layout_margin_input">10dp</dimen>
+
 </resources>

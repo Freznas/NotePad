@@ -14,9 +14,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top|center"
-        android:padding="5dp"
+        android:padding="@dimen/lv_Padding"
         android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textSize="@dimen/fontsize_large"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Placeholder title" />
@@ -24,16 +24,15 @@
     <TextView
         android:id="@+id/tv_text"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="left|center"
-        android:padding="5dp"
+        android:layout_height="wrap_content"
+        android:gravity="start|center"
+        android:padding="@dimen/lv_Padding"
         android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="@dimen/fontsize_medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_headline"
-        tools:text="Placer holder text
-" />
+        tools:text="Placer holder text" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
