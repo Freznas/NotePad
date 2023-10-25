@@ -1,4 +1,6 @@
 package com.example.notepad;
+//Custom adapter för hantera listan av anteckningar och fylla listview
+//Controller
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +16,7 @@ import java.util.List;
 
 public class NotesAdapter extends ArrayAdapter<String>
 {
- DataManager dataManager;
+    DataManager dataManager;
 
 
     public NotesAdapter(Context context, List<String> notes, DataManager dataManager)
@@ -25,6 +27,8 @@ public class NotesAdapter extends ArrayAdapter<String>
 
     @NonNull
     public View getView(int position, View convertView, @NonNull ViewGroup parent)
+    //här har vi metod för att skapa element i listan, den fyller i titel och innehåll och lägger till onclick.
+
     {
         View listItemView = convertView;
         if (listItemView == null)
@@ -35,7 +39,7 @@ public class NotesAdapter extends ArrayAdapter<String>
         String currentNote = getItem(position);
         if (currentNote != null)
         {
-            final String[] noteParts = currentNote.split("\\|"); // förstå?
+            final String[] noteParts = currentNote.split("\\|");
             TextView titleTextView = listItemView.findViewById(R.id.tv_headline);
             if (noteParts.length > 0)
             {
@@ -43,13 +47,12 @@ public class NotesAdapter extends ArrayAdapter<String>
             }
             final String titleToDelete = noteParts[0];
 
-            //problem?
             listItemView.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
                 {
-                    // Öppna NotesActivity för redigering när listelement klickas
+
                     Intent editIntent = new Intent(getContext(), NotesActivity.class);
                     editIntent.putExtra("edit_note_position", position);
                     getContext().startActivity(editIntent);
@@ -63,6 +66,8 @@ public class NotesAdapter extends ArrayAdapter<String>
     }
 
     public void deleteNoteAtPosition(int position)
+    //tar bort anteckning från både listan och sharedpreferences via positionen för att identifiera vilken som ska tas bort.
+
     {
         if (position >= 0 && position < getCount())
         {

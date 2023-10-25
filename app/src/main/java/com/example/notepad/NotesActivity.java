@@ -1,4 +1,6 @@
 package com.example.notepad;
+//här hanterar man skapandet/redigerandet och borttagandet av anteckningar.
+//controller
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,20 +42,19 @@ public class NotesActivity extends AppCompatActivity
         // Hämta anteckningar från SharedPreferences
         String savedTitle = dataManager.getSavedTitle();
         String savedContent = dataManager.getSavedContent();
-
         // Fyll inmatningsfälten om det finns sparade anteckningar
         titleEditText.setText(savedTitle);
         contentEditText.setText(savedContent);
 
-        // Hämta positionen för anteckningen att redigera
+
         editNotePosition = getIntent().getIntExtra("edit_note_position", -1);
         if (editNotePosition != -1)
+        // Hämta positionen för anteckningen att redigera
         {
-            // Redigeringsläge
+
             String noteToEdit = dataManager.getNoteByPosition(editNotePosition);
             if (noteToEdit != null)
             {
-                // Fyll in titel och innehåll i EditText-fälten för redigering
                 String[] noteParts = noteToEdit.split("\\|");
                 if (noteParts.length == 2)
                 {
@@ -68,28 +69,23 @@ public class NotesActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                // Hämta innehållet från inmatningsfälten
                 String title = titleEditText.getText().toString();
                 String content = contentEditText.getText().toString();
 
                 if (editNotePosition != -1)
                 {
-                    // Du redigerar en befintlig anteckning
                     boolean isUpdated = dataManager.updateNoteByPosition(editNotePosition, title, content);
                     if (isUpdated)
                     {
-                        // Uppdateringen lyckades, återvänd till huvudsidan
                         Intent intent = new Intent(NotesActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
                 } else
                 {
-                    // Du skapar en ny anteckning
-                    // Här lägger du till en position för den nya anteckningen (t.ex. 0)
+
                     int newPosition = dataManager.getNotes().size();
                     dataManager.saveNote(newPosition, title, content);  //Troligtvis här problemet ligger, tilldelar endast "Key" 0 om och om igen.
 
-                    // Återgå till huvudskärmen
                     Intent intent = new Intent(NotesActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
@@ -102,7 +98,6 @@ public class NotesActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                // När användaren går tillbaka, återvänd till huvudskärmen
                 Intent intent = new Intent(NotesActivity.this, MainActivity.class);
 
                 startActivity(intent);

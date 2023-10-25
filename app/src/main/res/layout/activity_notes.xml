@@ -7,7 +7,7 @@
     android:background="@drawable/gradient_background"
     android:padding="10dp"
     tools:context=".NotesActivity">
-    <!--här skapar vi en "ram" för vår listview-->
+
 
     <TextView
         android:id="@+id/tv_notes"
@@ -27,14 +27,14 @@
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/titleinput_height"
-        android:autofillHints="title"
         android:layout_margin="@dimen/layout_margin_input"
+        android:autofillHints="title"
         android:gravity="center|bottom"
         android:hint="@string/ET_title_instruction"
         android:inputType="text"
-        android:textSize="@dimen/fontsize_small"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:textSize="@dimen/fontsize_small"
         app:layout_constraintBottom_toTopOf="@+id/et_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
@@ -48,15 +48,15 @@
         android:id="@+id/et_content"
         android:layout_width="match_parent"
         android:layout_height="@dimen/intentcontent_height"
-        android:autofillHints="content"
         android:layout_margin="@dimen/layout_margin_input"
+        android:autofillHints="content"
         android:gravity="center|bottom"
         android:hint="@string/et_content_instruction"
         android:inputType="textMultiLine"
         android:minLines="5"
-        android:textSize="@dimen/fontsize_small"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
+        android:textSize="@dimen/fontsize_small"
         app:layout_constraintBottom_toTopOf="@+id/btn_delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"

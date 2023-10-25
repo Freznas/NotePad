@@ -1,5 +1,7 @@
 package com.example.notepad;
-//Har använt mig av MVC arkitekturen
+//Byggd utifrån MVC arkitekturen
+//här presenterar vi listan av sparade anteckningar som man kan redigera/ta bort,samt knapp för lägga till nya anteckningar
+//Controller
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +13,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
-//onresume?
 public class MainActivity extends AppCompatActivity
 {
     Button registerButton;
-    ListView noteList; // Lägg till ListView
+    ListView noteList;
     NotesAdapter adapter;
     DataManager dataManager;
 
@@ -25,7 +26,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         registerButton = findViewById(R.id.btn_register);
-        // Initialisera noteList
         noteList = findViewById(R.id.lv_notesMain);
         dataManager = new DataManager(this);
         registerButton.setOnClickListener(new View.OnClickListener()
@@ -37,11 +37,13 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        // Hämta anteckningar från DataManager
+
         List<String> notes = dataManager.getNotes();
-        // Skapa och sätt adaptern
+        //hämtar lista med anteckningar från getNotes metoden i min dataManager
+
         adapter = new NotesAdapter(this, notes, dataManager);
         noteList.setAdapter(adapter);
+        //fyller listview med det som hämtas via rad 41
     }
 
 }

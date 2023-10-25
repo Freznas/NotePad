@@ -1,4 +1,6 @@
 package com.example.notepad;
+//Datamanager hanterar dataöverföring och lagringen i sharedpreferences
+//model
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,10 +20,11 @@ public class DataManager
     }
 
     public List<String> getNotes()
+    //Hämtar alla sparade anteckningar från sharedpreferences och skickar tillbaka dem som en lista av Strings.
     {
         List<String> notes = new ArrayList<>();
         Map<String, ?> allEntries = sharedPreferences.getAll();
-        for (Map.Entry<String, ?> entry : allEntries.entrySet()) // förklara?
+        for (Map.Entry<String, ?> entry : allEntries.entrySet())
         {
             notes.add(entry.getValue().toString());
         }
@@ -29,15 +32,20 @@ public class DataManager
     }
 
     public void saveNote(int position, String title, String content)
+    //Sparar anteckning i sharedpreferences och använder position som nyckel för kunna hantera flera anteckningar.
+
     {
+
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        String note = title + "|" + content; //här har vi strecket!
+        String note = title + "|" + content;
         editor.putString(String.valueOf(position), note);
         editor.apply();
     }
 
     public boolean deleteNoteByTitle(String title)
-    { // kika på problem med att element inte tas bort?
+    //tar bort anteckningar genom att gå igenom alla sparade anteckningar och ta bort den med matchande titel som man valt att redigera.
+
+    {
 
         SharedPreferences.Editor editor = sharedPreferences.edit();
         Map<String, ?> allEntries = sharedPreferences.getAll();
@@ -57,6 +65,8 @@ public class DataManager
     }
 
     public String getNoteByPosition(int position)
+    // hämtar anteckning baserat på position i listan
+
     {
         List<String> notes = getNotes();
         if (position >= 0 && position < notes.size())
@@ -67,6 +77,8 @@ public class DataManager
     }
 
     public boolean updateNoteByPosition(int position, String newTitle, String newContent)
+    //Uppdaterar befintlig anteckning baserat på positionen i listan.
+
     {
         List<String> notes = getNotes();
         if (position >= 0 && position < notes.size())
@@ -80,14 +92,18 @@ public class DataManager
     }
 
     public String getSavedTitle()
+    // Hämta den senast sparade titeln från SharedPreferences
+
     {
-        // Hämta den senast sparade titeln från SharedPreferences
+
         return sharedPreferences.getString("savedTitle", "");
     }
 
     public String getSavedContent()
+    // Hämta den senast sparade innehållet från SharedPreferences
+
     {
-        // Hämta den senast sparade innehållet från SharedPreferences
+
         return sharedPreferences.getString("savedContent", "");
     }
 }
